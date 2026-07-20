@@ -1,43 +1,166 @@
 {
-  "meta": {
-    "title": { "nl": "Cattery Okaukuejo | Britse katten met karakter en klasse &mdash; Enschede", "en": "Cattery Okaukuejo | British cats raised with character &mdash; Enschede" },
-    "description": { "nl": "Kleinschalige fok van British Shorthair en Longhair in chocolate, lilac, blue, black golden en point &mdash; met liefde grootgebracht in Enschede.", "en": "Small-scale breeder of British Shorthair and Longhair in chocolate, lilac, blue, black golden and point &mdash; raised with love in Enschede." }
+  "statFollowers": {
+    "nl": "Volgers",
+    "en": "Followers"
   },
-  "heroKicker": { "nl": "Cattery Okaukuejo &middot; Enschede", "en": "Cattery Okaukuejo &middot; Enschede, NL" },
-  "heroTitle1": { "nl": "Britse katten,", "en": "British cats," },
-  "heroTitle2": { "nl": "met karakter en klasse", "en": "raised with character" },
-  "heroSub": { "nl": "Kleinschalige fok van British Shorthair en Longhair in chocolate, lilac, blue, black golden en point &mdash; met liefde grootgebracht in Enschede.", "en": "Small-scale breeder of British Shorthair and Longhair in chocolate, lilac, blue, black golden and point &mdash; raised with love in Enschede." },
-  "heroCta": { "nl": "Bekijk kittens", "en": "View kittens" },
-  "introKicker": { "nl": "Onze cattery", "en": "Our cattery" },
-  "introTitle": { "nl": "Hier beginnen kleine pootjes aan een leven vol liefde", "en": "Where little paws begin a life full of love" },
-  "introText": { "nl": "Onze katten zijn een belangrijk onderdeel van ons gezin en hun gezondheid, welzijn en geluk staan iedere dag centraal. Met veel liefde, zorg en aandacht geven we onze kittens de best mogelijke start, zodat zij kunnen opgroeien tot gezonde, sociale en gelukkige katten.", "en": "Our cats are an important part of our family, and their health, wellbeing and happiness come first every day. With love, care and attention we give our kittens the best possible start, so they can grow into healthy, social and happy cats." },
-  "statYears": { "nl": "Jaar ervaring", "en": "Years of experience" },
-  "statPosts": { "nl": "Berichten gedeeld", "en": "Posts shared" },
-  "statFollowers": { "nl": "Volgers", "en": "Followers" },
-  "badgeText": { "nl": "&ldquo;Elke kitten gaat pas mee als hij er klaar voor is.&rdquo;", "en": "&ldquo;Every kitten leaves only when they're truly ready.&rdquo;" },
-  "colorsKicker": { "nl": "Kleuren &amp; rassen", "en": "Colours &amp; breeds" },
-  "colorsTitle": { "nl": "Waar wij in gespecialiseerd zijn", "en": "What we specialise in" },
-  "kittensKicker": { "nl": "Beschikbaar nu", "en": "Available now" },
-  "kittensTitle": { "nl": "Uitgelichte kittens", "en": "Featured kittens" },
-  "kittensSeeAll": { "nl": "Bekijk alle kittens", "en": "View all kittens" },
-  "galleryKicker": { "nl": "Momentopnames", "en": "Snapshots" },
-  "galleryTitle": { "nl": "Uit het leven van de cattery", "en": "Life at the cattery" },
+  "ctaButton": {
+    "nl": "Neem contact op",
+    "en": "Get in touch"
+  },
+  "statYears": {
+    "nl": "Jaar ervaring",
+    "en": "Years of experience"
+  },
+  "colorsKicker": {
+    "nl": "Kleuren &amp; rassen",
+    "en": "Colours &amp; breeds"
+  },
+  "meta": {
+    "title": {
+      "nl": "Cattery Okaukuejo ",
+      "en": "Cattery Okaukuejo "
+    },
+    "description": {
+      "nl": "Hier beginnen kleine pootjes aan een leven vol liefde\nOnze katten zijn een belangrijk onderdeel van ons gezin en hun gezondheid, welzijn en geluk staan iedere dag centraal. Met veel liefde, zorg en aandacht geven we onze kittens de best mogelijke start, zodat zij kunnen opgroeien tot gezonde, sociale en gelukkige katten.\n\nOp deze website vertellen we je graag meer over onze katten, onze werkwijze en hoe onze kittens opgroeien in een warme, huiselijke omgeving. Je vind hier alle informatie over beschikbare kittens, gezondheid, het aanvragen van een kitten en alles wat belangrijk is om te weten over onze cattery.\n\nWe wensen je veel plezier bij het rondkijken! ",
+      "en": "Small-scale breeder of British Shorthair and Longhair in chocolate, lilac, blue, black golden and point &mdash; raised with love in Enschede."
+    }
+  },
+  "galleryKicker": {
+    "nl": "Momentopnames",
+    "en": "Snapshots"
+  },
+  "galleryTitle": {
+    "nl": "Uit het leven van de cattery",
+    "en": "Life at the cattery"
+  },
+  "heroSub": {
+    "nl": "Kleinschalige fok van British Shorthair en Longhair in chocolate, lilac, blue, black golden en point &mdash; met liefde grootgebracht in Enschede.",
+    "en": "Small-scale breeder of British Shorthair and Longhair in chocolate, lilac, blue, black golden and point &mdash; raised with love in Enschede."
+  },
+  "testimonialsKicker": {
+    "nl": "Wat eigenaren vertellen",
+    "en": "What owners say"
+  },
   "trustBadges": [
-    { "nl": "Gezondheidsgetest fokprogramma", "en": "Health-tested breeding program" },
-    { "nl": "Kittens groeien op in huiselijke kring", "en": "Kittens raised in a home environment" },
-    { "nl": "Levenslang advies &amp; nazorg", "en": "Lifelong advice &amp; support" },
-    { "nl": "Kleinschalig, max. 2 nestjes/jaar", "en": "Small-scale, max. 2 litters/year" }
+    {
+      "nl": "Gezondheidsgetest fokprogramma",
+      "en": "Health-tested breeding program"
+    },
+    {
+      "nl": "Kittens groeien op in huiselijke kring",
+      "en": "Kittens raised in a home environment"
+    },
+    {
+      "nl": "Levenslang advies &amp; nazorg",
+      "en": "Lifelong advice &amp; support"
+    },
+    {
+      "nl": "Kleinschalig, max. 2 nestjes/jaar",
+      "en": "Small-scale, max. 2 litters/year"
+    }
   ],
-  "foundersKicker": { "nl": "De fokkers", "en": "The breeders" },
-  "foundersTitle": { "nl": "Graag stellen wij ons voor", "en": "Let us introduce ourselves" },
-  "foundersText": { "nl": "Wij fokken British Shorthair en Longhair vanuit ons huis in Enschede, middenin het gezin. Elke keuze in ons fokprogramma draait om gezondheid, karakter en de zeldzame kleuren waar we verliefd op werden.", "en": "We breed British Shorthair and Longhair from our home in Enschede, right in the middle of the family. Every choice in our program comes down to health, temperament and the rare colours we fell for." },
-  "foundersCta": { "nl": "Lees meer over ons", "en": "Read more about us" },
-  "testimonialsKicker": { "nl": "Wat eigenaren vertellen", "en": "What owners say" },
+  "ctaTitle": {
+    "nl": "Benieuwd of er een kitten bij jouw gezin past?",
+    "en": "Wondering if a kitten would fit your family?"
+  },
+  "colorsTitle": {
+    "nl": "Waar wij in gespecialiseerd zijn",
+    "en": "What we specialise in"
+  },
+  "foundersCta": {
+    "nl": "Lees meer over ons",
+    "en": "Read more about us"
+  },
+  "kittensTitle": {
+    "nl": "Uitgelichte kittens",
+    "en": "Featured kittens"
+  },
+  "introTitle": {
+    "nl": "Hier beginnen kleine pootjes aan een leven vol liefde",
+    "en": "Where little paws begin a life full of love"
+  },
+  "heroKicker": {
+    "nl": "Cattery Okaukuejo &middot; Enschede",
+    "en": "Cattery Okaukuejo &middot; Enschede, NL"
+  },
+  "badgeText": {
+    "nl": "&ldquo;Elke kitten gaat pas mee als hij er klaar voor is.&rdquo;",
+    "en": "&ldquo;Every kitten leaves only when they're truly ready.&rdquo;"
+  },
+  "foundersText": {
+    "nl": "Wij fokken British Shorthair en Longhair vanuit ons huis in Enschede, middenin het gezin. Elke keuze in ons fokprogramma draait om gezondheid, karakter en de zeldzame kleuren waar we verliefd op werden.",
+    "en": "We breed British Shorthair and Longhair from our home in Enschede, right in the middle of the family. Every choice in our program comes down to health, temperament and the rare colours we fell for."
+  },
+  "heroTitle1": {
+    "nl": "Britse katten,",
+    "en": "British cats,"
+  },
+  "heroTitle2": {
+    "nl": "met karakter en klasse",
+    "en": "raised with character"
+  },
+  "foundersTitle": {
+    "nl": "Graag stellen wij ons voor",
+    "en": "Let us introduce ourselves"
+  },
   "testimonials": [
-    { "quote": { "nl": "We wisten niet dat een kitten zo veel karakter kon hebben. Amber past precies bij ons gezin &mdash; dank je wel, Cattery Okaukuejo.", "en": "We never knew a kitten could have so much personality. Amber fits our family perfectly &mdash; thank you, Cattery Okaukuejo." }, "author": { "nl": "&mdash; Familie De Vries", "en": "&mdash; The De Vries family" } },
-    { "quote": { "nl": "Ontzettend liefdevol opgevoed en goed gesocialiseerd. We krijgen nog steeds updates en advies, ook maanden later.", "en": "Raised with so much love and beautifully socialised. We still get updates and advice, even months later." }, "author": { "nl": "&mdash; Sanne, nieuwe eigenaar van Anton", "en": "&mdash; Sanne, Anton's new owner" } },
-    { "quote": { "nl": "Duidelijk, eerlijk en met heel veel kennis van het ras. Precies wat je zoekt bij de aanschaf van een kitten.", "en": "Clear, honest, and hugely knowledgeable about the breed. Exactly what you want when getting a kitten." }, "author": { "nl": "&mdash; Mark &amp; Iris", "en": "&mdash; Mark &amp; Iris" } }
+    {
+      "quote": {
+        "nl": "We wisten niet dat een kitten zo veel karakter kon hebben. Amber past precies bij ons gezin &mdash; dank je wel, Cattery Okaukuejo.",
+        "en": "We never knew a kitten could have so much personality. Amber fits our family perfectly &mdash; thank you, Cattery Okaukuejo."
+      },
+      "author": {
+        "nl": "&mdash; Familie De Vries",
+        "en": "&mdash; The De Vries family"
+      }
+    },
+    {
+      "quote": {
+        "nl": "Ontzettend liefdevol opgevoed en goed gesocialiseerd. We krijgen nog steeds updates en advies, ook maanden later.",
+        "en": "Raised with so much love and beautifully socialised. We still get updates and advice, even months later."
+      },
+      "author": {
+        "nl": "&mdash; Sanne, nieuwe eigenaar van Anton",
+        "en": "&mdash; Sanne, Anton's new owner"
+      }
+    },
+    {
+      "quote": {
+        "nl": "Duidelijk, eerlijk en met heel veel kennis van het ras. Precies wat je zoekt bij de aanschaf van een kitten.",
+        "en": "Clear, honest, and hugely knowledgeable about the breed. Exactly what you want when getting a kitten."
+      },
+      "author": {
+        "nl": "&mdash; Mark &amp; Iris",
+        "en": "&mdash; Mark &amp; Iris"
+      }
+    }
   ],
-  "ctaTitle": { "nl": "Benieuwd of er een kitten bij jouw gezin past?", "en": "Wondering if a kitten would fit your family?" },
-  "ctaButton": { "nl": "Neem contact op", "en": "Get in touch" }
+  "heroCta": {
+    "nl": "Bekijk kittens",
+    "en": "View kittens"
+  },
+  "foundersKicker": {
+    "nl": "De fokkers",
+    "en": "The breeders"
+  },
+  "introText": {
+    "nl": "Onze katten zijn een belangrijk onderdeel van ons gezin en hun gezondheid, welzijn en geluk staan iedere dag centraal. Met veel liefde, zorg en aandacht geven we onze kittens de best mogelijke start, zodat zij kunnen opgroeien tot gezonde, sociale en gelukkige katten.",
+    "en": "Our cats are an important part of our family, and their health, wellbeing and happiness come first every day. With love, care and attention we give our kittens the best possible start, so they can grow into healthy, social and happy cats."
+  },
+  "kittensSeeAll": {
+    "nl": "Bekijk alle kittens",
+    "en": "View all kittens"
+  },
+  "kittensKicker": {
+    "nl": "Beschikbaar nu",
+    "en": "Available now"
+  },
+  "statPosts": {
+    "nl": "Berichten gedeeld",
+    "en": "Posts shared"
+  },
+  "introKicker": {
+    "nl": "Onze cattery",
+    "en": "Our cattery"
+  }
 }
