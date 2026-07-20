@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "title": { "nl": "Contact | Cattery Okaukuejo", "en": "Contact | Cattery Okaukuejo" },
+    "description": { "nl": "Neem contact op met Cattery Okaukuejo in Enschede &mdash; vragen over kittens of het ras? Stuur een bericht.", "en": "Get in touch with Cattery Okaukuejo in Enschede &mdash; questions about kittens or the breed? Send a message." }
+  },
+  "kicker": { "nl": "Neem contact op", "en": "Get in touch" },
+  "title": { "nl": "Laten we kennismaken", "en": "Let's connect" },
+  "sub": { "nl": "Heb je interesse in een kitten, of gewoon een vraag over het ras? Stuur een bericht, we reageren binnen enkele dagen.", "en": "Interested in a kitten, or just have a question about the breed? Send a message &mdash; we reply within a few days." },
+  "formName": { "nl": "Naam", "en": "Name" },
+  "formEmail": { "nl": "E-mailadres", "en": "Email address" },
+  "formInterest": { "nl": "Interesse in", "en": "Interested in" },
+  "formInterestGeneral": { "nl": "Algemene vraag", "en": "General question" },
+  "formMessage": { "nl": "Bericht", "en": "Message" },
+  "formSubmit": { "nl": "Verstuur bericht", "en": "Send message" },
+  "formSuccess": { "nl": "Bedankt! Je e-mailprogramma opent met je bericht klaar om te versturen naar Cattery Okaukuejo.", "en": "Thank you! Your email app will open with your message ready to send to Cattery Okaukuejo." },
+  "formErrorMsg": { "nl": "Vul in ieder geval je naam en e-mailadres in.", "en": "Please fill in at least your name and email address." },
+  "formHint": { "nl": "Opent je e-mailprogramma met het bericht vooraf ingevuld.", "en": "Opens your email app with the message pre-filled." },
+  "addressLabel": { "nl": "Locatie", "en": "Location" },
+  "followLabel": { "nl": "Volg ons", "en": "Follow us" }
+}

@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude Code's local tooling config — not part of the deployed site
+.claude/
+
+# Raw Claude Design export bundle — reference material, not served content
+Moderne luxe kattensitewebsite-handoff03/
+
+# Personal photo staging folder — not wired into the site; upload via the
+# CMS media picker (admin panel) instead once a photo is ready to use
+foto's/

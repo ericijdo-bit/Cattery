@@ -1,0 +1,407 @@
+/* ==========================================================================
+   Cattery Okaukuejo — luxe (light/cream) design system
+   Ported from the "Moderne luxe kattensitewebsite" design handoff.
+   Tokens: paper #f8f4ec / #efe6d5 / #e8dcc5, ink #2a211a, terracotta #a85c48,
+   gold #c9a05c. The hero and CTA sections keep a dark photo overlay, so
+   their own text stays cream (#f7f3ec) rather than ink.
+   Headings: Barlow Condensed. Body: Barlow.
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+  background: #f8f4ec;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+a {
+  color: #c9a05c;
+}
+a:hover {
+  color: #dfc086;
+}
+
+::selection {
+  background: #a85c48;
+  color: #f7f3ec;
+}
+
+/* --------------------------------------------------------------------------
+   Entrance animation (mirrors the .fu/.fi classes from the design source —
+   a simple fade/slide-up on page load, not a scroll-triggered reveal)
+   -------------------------------------------------------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fu { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.fi { animation: fadeIn 0.5s ease both; }
+
+/* --------------------------------------------------------------------------
+   Placeholder photo slots
+   Only shown when a kitten/cat has no photo yet — everything currently on
+   the site uses real photography.
+   -------------------------------------------------------------------------- */
+.ph {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #efe6d5 0%, #e8dcc5 55%, #ddcfb2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ph::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(42, 33, 26, 0.06) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+.ph-paw {
+  position: absolute;
+  color: rgba(168, 92, 72, 0.14);
+  width: 44%;
+  height: 44%;
+}
+.ph-caption {
+  position: relative;
+  z-index: 1;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(42, 33, 26, 0.4);
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Fixed nav — transparent over the hero (cream text/borders, since the hero
+   photo keeps a dark overlay), becomes a light blurred bar on scroll (dark
+   text/borders). Class toggled by main.js (scroll listener).
+   -------------------------------------------------------------------------- */
+#nav-wrap {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#nav-wrap.scrolled {
+  background: rgba(248, 244, 236, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(42, 33, 26, 0.08);
+}
+#site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 8vw;
+  transition: padding 0.3s ease;
+}
+#nav-wrap.scrolled #site-nav {
+  padding: 16px 8vw;
+}
+
+.nav-logo-text {
+  color: #f7f3ec;
+  transition: color 0.3s ease;
+}
+#nav-wrap.scrolled .nav-logo-text {
+  color: #2a211a;
+}
+
+.nav-link {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  color: rgba(247, 243, 236, 0.8);
+  transition: color 0.2s ease;
+}
+#nav-wrap.scrolled .nav-link {
+  color: rgba(42, 33, 26, 0.65);
+}
+.nav-link:hover {
+  color: #f7f3ec;
+}
+#nav-wrap.scrolled .nav-link:hover {
+  color: #2a211a;
+}
+.nav-link.active {
+  color: #f7f3ec;
+  border-bottom-color: #a85c48;
+}
+#nav-wrap.scrolled .nav-link.active {
+  color: #a85c48;
+}
+
+/* Mobile hamburger icon follows the same transparent-over-hero → solid rule */
+#menu-btn {
+  color: #f7f3ec;
+}
+#nav-wrap.scrolled #menu-btn {
+  color: #2a211a;
+}
+
+/* Mobile nav slide-down (sits inside #nav-wrap, right below #site-nav) —
+   always an opaque light panel, so its text always stays dark ink. */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: rgba(248, 244, 236, 0.98);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(42, 33, 26, 0.08);
+}
+#mobile-menu.open {
+  max-height: 28rem;
+}
+#mobile-menu .nav-link,
+#mobile-menu .nav-link.active {
+  color: rgba(42, 33, 26, 0.65);
+}
+#mobile-menu .nav-link.active {
+  color: #a85c48;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn-solid {
+  display: inline-block;
+  padding: 17px 40px;
+  background: #a85c48;
+  color: #f7f3ec;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 20px 50px rgba(168, 92, 72, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-solid:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 55px rgba(168, 92, 72, 0.45);
+}
+/* Outline button — only used on the hero, which keeps a dark photo
+   backdrop, so it stays cream-toned rather than switching to ink. */
+.btn-outline {
+  display: inline-block;
+  padding: 17px 40px;
+  border: 1px solid rgba(247, 243, 236, 0.35);
+  color: #f7f3ec;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.btn-outline:hover {
+  border-color: #f7f3ec;
+  background: rgba(247, 243, 236, 0.1);
+}
+.text-link {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c9a05c;
+  cursor: pointer;
+  border-bottom: 1px solid #c9a05c;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+.text-link:hover {
+  color: #dfc086;
+  border-color: #dfc086;
+}
+
+/* --------------------------------------------------------------------------
+   Glossy treatment — used for primary CTAs, cards and colour swatches
+   -------------------------------------------------------------------------- */
+.glossy-btn {
+  background: linear-gradient(160deg, #c97a5f 0%, #a85c48 45%, #8a4636 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -12px 20px rgba(0, 0, 0, 0.25), 0 20px 50px rgba(168, 92, 72, 0.4);
+  color: #f7f3ec;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.glossy-btn:hover {
+  transform: translateY(-2px);
+}
+
+.glossy-card {
+  background: linear-gradient(160deg, rgba(42, 33, 26, 0.06), rgba(42, 33, 26, 0.015));
+  backdrop-filter: blur(6px);
+}
+
+.glossy-swatch {
+  position: relative;
+}
+.glossy-swatch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 55%);
+}
+
+/* Subtle lift/depth on hover for cards (kittens, breeding cats, colour swatches) */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -18px rgba(42, 33, 26, 0.35);
+}
+
+/* Kicker (small uppercase eyebrow label) */
+.kicker {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #a85c48;
+}
+
+/* --------------------------------------------------------------------------
+   Language toggle — same transparent-over-hero → solid-once-scrolled rule
+   -------------------------------------------------------------------------- */
+.lang-btn {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 8px 14px;
+  border: 1px solid rgba(247, 243, 236, 0.35);
+  border-radius: 2px;
+  color: #f7f3ec;
+  background: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+#nav-wrap.scrolled .lang-btn {
+  border-color: rgba(42, 33, 26, 0.25);
+  color: #2a211a;
+}
+#mobile-menu .lang-btn {
+  border-color: rgba(42, 33, 26, 0.25);
+  color: #2a211a;
+}
+.lang-btn:hover {
+  background: rgba(247, 243, 236, 0.1);
+}
+#nav-wrap.scrolled .lang-btn:hover,
+#mobile-menu .lang-btn:hover {
+  background: rgba(42, 33, 26, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   Kitten colour-filter / view chips
+   -------------------------------------------------------------------------- */
+.chip {
+  padding: 11px 22px;
+  border-radius: 24px;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: 1px solid rgba(42, 33, 26, 0.25);
+  background: transparent;
+  color: rgba(42, 33, 26, 0.7);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.chip.active {
+  background: linear-gradient(160deg, #c97a5f, #a85c48);
+  border-color: #a85c48;
+  color: #f7f3ec;
+  box-shadow: 0 8px 20px rgba(168, 92, 72, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   FAQ accordion
+   -------------------------------------------------------------------------- */
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-sign {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #c9a05c;
+  color: #c9a05c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Form fields (light, minimal underline-style)
+   -------------------------------------------------------------------------- */
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(42, 33, 26, 0.55);
+  margin-bottom: 8px;
+}
+.field-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(42, 33, 26, 0.25);
+  border-radius: 2px;
+  color: #2a211a;
+  font-size: 15px;
+  font-family: "Barlow", sans-serif;
+  transition: border-color 0.2s ease;
+}
+.field-input:focus {
+  outline: none;
+  border-color: #c9a05c;
+}
+select.field-input {
+  background: #f8f4ec;
+}
+
+/* Custom focus ring matching the palette */
+:focus-visible {
+  outline: 2px solid #c9a05c;
+  outline-offset: 2px;
+}

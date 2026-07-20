@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": { "nl": "Onze katten | Cattery Okaukuejo", "en": "Our cats | Cattery Okaukuejo" },
+    "description": { "nl": "Maak kennis met de fokkatten van Cattery Okaukuejo &mdash; gezondheid, karakter en type staan bij elke combinatie voorop.", "en": "Meet the breeding cats of Cattery Okaukuejo &mdash; health, temperament and type come first in every pairing." }
+  },
+  "kicker": { "nl": "Onze kater &amp; poezen", "en": "Our male &amp; females" },
+  "title": { "nl": "Onze katten", "en": "Our cats" },
+  "sub": { "nl": "Gezondheid, karakter en type staan bij elke combinatie voorop.", "en": "Health, temperament and type come first in every pairing." },
+  "tabAll": { "nl": "Alle", "en": "All" },
+  "tabFemales": { "nl": "Onze poezen", "en": "Our females" },
+  "tabMale": { "nl": "Onze kater", "en": "Our male" },
+  "tabNeutered": { "nl": "Castraten", "en": "Neutered" },
+  "neuterTitle": { "nl": "Op dit moment geen katten beschikbaar", "en": "No cats currently available" },
+  "neuterText": { "nl": "Af en toe biedt een van onze katten, die niet langer voor de fok wordt ingezet, een plekje voor herplaatsing als huisdier &mdash; gecastreerd of gesteriliseerd. Op dit moment is dat niet het geval. Interesse voor de toekomst? Neem gerust contact op.", "en": "Occasionally, one of our cats that's no longer part of the breeding program becomes available for rehoming as a pet &mdash; neutered or spayed. That's not currently the case, but feel free to get in touch for future availability." },
+  "showKicker": { "nl": "Kattenshows", "en": "Cat shows" },
+  "showTitle": { "nl": "Onze show-resultaten", "en": "Our show results" },
+  "showSub": { "nl": "We laten onze katten graag af en toe beoordelen door onafhankelijke keurmeesters op shows van rasvereniging Mundikat.", "en": "We enjoy occasionally having our cats judged by independent judges at shows held by breed association Mundikat." }
+}

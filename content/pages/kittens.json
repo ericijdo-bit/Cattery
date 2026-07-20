@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": { "nl": "Kittens | Cattery Okaukuejo", "en": "Kittens | Cattery Okaukuejo" },
+    "description": { "nl": "Beschikbare nestjes bij Cattery Okaukuejo &mdash; filter op kleur, lees over onze wachtlijst, ons kittenbeleid en veelgestelde vragen.", "en": "Available litters at Cattery Okaukuejo &mdash; filter by colour, read about our waiting list, kitten policy and frequently asked questions." }
+  },
+  "kicker": { "nl": "Beschikbare nestjes", "en": "Available litters" },
+  "title": { "nl": "Onze kittens", "en": "Our kittens" },
+  "sub": { "nl": "Filter op kleur om te zien welke kittens beschikbaar zijn.", "en": "Filter by colour to see which kittens are currently available." },
+  "filterAll": { "nl": "Alle", "en": "All" },
+  "noneKicker": { "nl": "Planning 2026", "en": "Planning 2026" },
+  "noneTitle": { "nl": "Op dit moment hebben wij nog geen planning", "en": "No litters are planned yet" },
+  "noneText": { "nl": "Zodra er een planning bekend is, maken we dit hier kenbaar.", "en": "We'll announce it here as soon as a litter is planned." },
+  "noneAvailableTitle": { "nl": "Op dit moment hebben wij geen kittens beschikbaar", "en": "No kittens currently available" },
+  "noneAvailableText": { "nl": "Bekijk onze planning voor het komende jaar of meld je aan voor de wachtlijst.", "en": "Check our planning for the coming year, or join the waiting list." },
+  "viewBeschikbaar": { "nl": "Beschikbaar", "en": "Available" },
+  "viewPlanning": { "nl": "Planning", "en": "Planning" },
+  "viewPast": { "nl": "Voorgaande nestjes", "en": "Past litters" },
+  "waitlistKicker": { "nl": "Wachtlijst", "en": "Waiting list" },
+  "waitlistTitle": { "nl": "Alle nestjes zijn gewild &mdash; zo werkt onze wachtlijst", "en": "Every litter is in demand &mdash; how our waiting list works" },
+  "waitlistText": { "nl": "Onze kittens gaan vaak al voor de geboorte naar een nieuw thuis. Sta je op de wachtlijst, dan houden we je persoonlijk op de hoogte van geplande nestjes en krijg je als eerste de kans om kennis te maken.", "en": "Our kittens are often spoken for before they're even born. Join the waiting list and we'll keep you personally updated on planned litters, giving you first chance to meet a kitten." },
+  "waitlistCta": { "nl": "Meld je aan voor de wachtlijst", "en": "Join the waiting list" },
+  "waitlistSteps": [
+    { "n": "1", "title": { "nl": "Vrijblijvend kennismaken", "en": "A no-obligation chat" }, "text": { "nl": "Je vertelt ons wat je zoekt qua kleur en karakter, wij vertellen over geplande nestjes.", "en": "Tell us what you're looking for in colour and character, we tell you about upcoming litters." } },
+    { "n": "2", "title": { "nl": "Plaats op de wachtlijst", "en": "Get on the list" }, "text": { "nl": "Met een kleine aanbetaling reserveer je een plek voor het eerstvolgende passende nestje.", "en": "A small deposit reserves you a spot for the next matching litter." } },
+    { "n": "3", "title": { "nl": "Kitten kiezen", "en": "Choose your kitten" }, "text": { "nl": "Zodra de kittens zo'n 6 weken oud zijn, kom je langs om kennis te maken en je kitten te kiezen.", "en": "Once the kittens are around 6 weeks old, you visit to meet them and choose yours." } },
+    { "n": "4", "title": { "nl": "Ophalen bij ~13 weken", "en": "Pick-up at ~13 weeks" }, "text": { "nl": "Je kitten verhuist pas als hij gezond, gevaccineerd, gechipt en er echt klaar voor is.", "en": "Your kitten only leaves once healthy, vaccinated, chipped, and truly ready." } }
+  ],
+  "policyKicker": { "nl": "Kittenbeleid", "en": "Kitten policy" },
+  "policyTitle": { "nl": "Zo werkt het aanvragen van een kitten", "en": "How applying for a kitten works" },
+  "policySub": { "nl": "Om onze kittens een goede start en een passend nieuw thuis te geven, hanteren wij een aantal duidelijke afspraken.", "en": "To give our kittens a good start and the right new home, we work with a few clear agreements." },
+  "policyItems": [
+    { "title": { "nl": "Aanvraag", "en": "Application" }, "text": { "nl": "Interesse in een kitten? Vul het aanvraagformulier in via Contact, dan nemen wij persoonlijk contact met je op.", "en": "Interested in a kitten? Fill in the application form via Contact, and we'll get in touch personally." } },
+    { "title": { "nl": "Kennismaking", "en": "Meet & greet" }, "text": { "nl": "Voordat je een kitten reserveert, plannen we graag een kennismaking bij ons thuis in Enschede.", "en": "Before reserving a kitten, we like to plan a meeting at our home in Enschede." } },
+    { "title": { "nl": "Aanbetaling", "en": "Deposit" }, "text": { "nl": "Bij reservering vragen we een aanbetaling. Deze is niet-restitueerbaar, tenzij de cattery de plaatsing niet na kan komen.", "en": "A deposit is required to reserve a kitten. It is non-refundable, unless we're unable to deliver the placement." } },
+    { "title": { "nl": "Gezondheid", "en": "Health" }, "text": { "nl": "Elke kitten gaat mee gechipt, gevaccineerd, ontwormd en met een gezondheidsverklaring van de dierenarts.", "en": "Every kitten leaves chipped, vaccinated, dewormed and with a vet health certificate." } },
+    { "title": { "nl": "Castratie/sterilisatie", "en": "Neuter/spay contract" }, "text": { "nl": "Kittens die niet voor de fok bestemd zijn, gaan mee onder een castratie-/sterilisatiecontract.", "en": "Kittens not intended for breeding leave under a neuter/spay contract." } },
+    { "title": { "nl": "Ophalen", "en": "Pick-up" }, "text": { "nl": "Je kitten verhuist op zijn vroegst bij 13 weken, wanneer hij er echt klaar voor is.", "en": "Your kitten moves at 13 weeks at the earliest, once truly ready." } }
+  ],
+  "policyCta": { "nl": "Kitten aanvragen", "en": "Apply for a kitten" },
+  "faqKicker": { "nl": "Veelgestelde vragen", "en": "FAQ" },
+  "faqTitle": { "nl": "Vragen over onze kittens", "en": "Questions about our kittens" },
+  "faq": [
+    { "q": { "nl": "Hoe oud is een kitten als hij naar zijn nieuwe huis mag?", "en": "How old is a kitten when it goes to its new home?" }, "a": { "nl": "Onze kittens verhuizen op zijn vroegst bij 13 weken, gezond, gevaccineerd, ontwormd en gechipt.", "en": "Our kittens leave at 13 weeks at the earliest, healthy, vaccinated, dewormed and chipped." } },
+    { "q": { "nl": "Krijg ik de stamboom en gezondheidspapieren mee?", "en": "Do I get a pedigree and health papers?" }, "a": { "nl": "Ja, elke kitten gaat mee met stamboom, vaccinatieboekje, chipregistratie en een informatiepakket over voeding en verzorging.", "en": "Yes, every kitten comes with a pedigree, vaccination booklet, chip registration and an info pack on feeding and care." } },
+    { "q": { "nl": "Kan ik mijn kitten van tevoren bezoeken?", "en": "Can I visit my kitten beforehand?" }, "a": { "nl": "Zeker &mdash; zodra de kittens oud genoeg zijn voor bezoek plannen we graag een kennismaking bij ons thuis in Enschede.", "en": "Absolutely &mdash; once the kittens are old enough for visits, we're happy to plan a meeting at our home in Enschede." } },
+    { "q": { "nl": "Hoeveel kost een kitten bij Cattery Okaukuejo?", "en": "How much does a kitten cost at Cattery Okaukuejo?" }, "a": { "nl": "De prijs hangt af van kleur, lijn en show-potentieel. Neem contact op voor de actuele prijzen per nestje.", "en": "Price depends on colour, line and show potential. Get in touch for current pricing per litter." } },
+    { "q": { "nl": "Werken jullie met een reserveringsaanbetaling?", "en": "Do you work with a reservation deposit?" }, "a": { "nl": "Ja, met een aanbetaling zet je jouw plek op de wachtlijst vast voor het eerstvolgende passende nestje.", "en": "Yes, a deposit secures your spot on the waiting list for the next matching litter." } },
+    { "q": { "nl": "Blijven jullie beschikbaar na de verhuizing van mijn kitten?", "en": "Do you stay available after my kitten moves in?" }, "a": { "nl": "Altijd. We houden graag contact en staan klaar met advies, ook lang nadat je kitten bij je thuis is.", "en": "Always. We love staying in touch and are here with advice long after your kitten comes home." } }
+  ]
+}

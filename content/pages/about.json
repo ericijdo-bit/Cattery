@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "title": { "nl": "Over ons | Cattery Okaukuejo", "en": "About | Cattery Okaukuejo" },
+    "description": { "nl": "Wij zijn Pascal en Linda &mdash; het verhaal achter Cattery Okaukuejo in Enschede.", "en": "We are Pascal and Linda &mdash; the story behind Cattery Okaukuejo in Enschede." }
+  },
+  "kicker": { "nl": "Ons verhaal", "en": "Our story" },
+  "title": { "nl": "Wij zijn Pascal en Linda", "en": "We are Pascal and Linda" },
+  "p1": { "nl": "Wij zijn Pascal en Linda en samen met onze kinderen Senna en Mad&eacute;e wonen wij in Enschede. Onze liefde voor dieren is altijd een belangrijk onderdeel geweest van ons leven. Toen onze Britse kortharen Archie en Ollie bij ons kwamen wonen, groeide niet alleen onze liefde voor dit bijzondere ras, maar ontstond ook de wens om ons verder te verdiepen in Brits kort- en langharen en het verantwoord starten van een kleinschalige hobbycattery.", "en": "We are Pascal and Linda, and together with our children Senna and Mad&eacute;e we live in Enschede. Our love for animals has always been an important part of our lives. When our British Shorthairs Archie and Ollie came to live with us, our love for this special breed grew &mdash; and so did the wish to dive deeper into British Short- and Longhair and responsibly start a small-scale hobby cattery." },
+  "p2": { "nl": "In 2021 hebben we de stap gezet. We vonden het belangrijk om goed voorbereid aan dit avontuur te beginnen en hebben ons daarom verdiept in gezondheid, verzorging en genetica. Zo volgden wij onder meer de opleiding houder voor honden en katten en een cursus genetica. Ook zijn we aangesloten bij een rasvereniging (Mundikat) en zijn we af en toe te vinden op kattenshows &mdash; hier vinden wij het leuk om kennis uit te wisselen met andere liefhebbers en onze katten te laten beoordelen door onafhankelijke keurmeesters.", "en": "In 2021 we took the step. We felt it was important to prepare well for this adventure, so we studied health, care and genetics &mdash; following courses on cat and dog keeping and genetics. We're also members of a breed association (Mundikat) and occasionally attend cat shows, where we love exchanging knowledge with other enthusiasts and having our cats judged by independent judges." },
+  "p3": { "nl": "Onze katten zijn voor ons in de eerste plaats onze huisdieren en maken onderdeel uit van ons gezin. Daarom kiezen wij er bewust voor om slechts af en toe een nestje te hebben, zodat we ieder kitten en moederpoes alle aandacht, liefde en zorg kunnen geven die zij verdienen. In november 2022 is ons eerste nestje geboren &mdash; een bijzondere ervaring waar we ontzettend van genoten hebben.", "en": "Our cats are, first and foremost, our pets and part of our family. That's why we deliberately choose to have only the occasional litter, so every kitten and mother cat gets all the attention, love and care they deserve. Our first litter was born in November 2022 &mdash; a special experience we thoroughly enjoyed." },
+  "valuesTitle": { "nl": "Waar we voor staan", "en": "What we stand for" },
+  "values": [
+    { "title": { "nl": "Gezondheid voorop", "en": "Health first" }, "text": { "nl": "DNA- en hartonderzoek bij alle fokdieren, in samenwerking met een gespecialiseerde dierenarts.", "en": "DNA and heart screening for every breeding cat, together with a specialised vet." } },
+    { "title": { "nl": "Kleinschalig", "en": "Small scale" }, "text": { "nl": "Een beperkt aantal nestjes per jaar, zodat elke kitten persoonlijke aandacht krijgt.", "en": "A limited number of litters per year, so every kitten gets personal attention." } },
+    { "title": { "nl": "Levenslang betrokken", "en": "Lifelong support" }, "text": { "nl": "Ook na vertrek staan we klaar met advies &mdash; onze band met een kitten stopt nooit.", "en": "Our bond with a kitten never ends &mdash; we're here for advice long after they leave." } }
+  ],
+  "healthKicker": { "nl": "Gezondheid en welzijn", "en": "Health and welfare" },
+  "healthTitle": { "nl": "Waar wij onze katten op testen", "en": "What we screen our cats for" },
+  "healthSub": { "nl": "Onze fokkatten worden regelmatig getest op erfelijke en besmettelijke aandoeningen, zodat we bewust en verantwoord fokken.", "en": "Our breeding cats are regularly tested for hereditary and infectious conditions, so we can breed deliberately and responsibly." },
+  "healthTests": [
+    { "abbr": "HCM", "name": { "nl": "Hypertrofische cardiomyopathie (hartscreening)", "en": "Hypertrophic cardiomyopathy (heart screening)" } },
+    { "abbr": "PKD", "name": { "nl": "Polycysteuze nierziekte", "en": "Polycystic kidney disease" } },
+    { "abbr": "FIV", "name": { "nl": "Kattenaids", "en": "Feline immunodeficiency virus" } },
+    { "abbr": "FeLV", "name": { "nl": "Feline leukemie", "en": "Feline leukemia virus" } },
+    { "abbr": "FIP", "name": { "nl": "Feline infectieuze peritonitis", "en": "Feline infectious peritonitis" } }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Mowgli",
+  "role": "male",
+  "colorName": "Brits Korthaar",
+  "photo": "/assets/img/hero.png",
+  "born": 2021,
+  "description": { "nl": "Onze kater, rustig en zelfverzekerd.", "en": "Our male, calm and confident." }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Sara",
+  "role": "female",
+  "colorName": "Brits Korthaar",
+  "photo": "/assets/img/ctabg.webp",
+  "born": 2022,
+  "description": { "nl": "Een van onze fokpoezen.", "en": "One of our breeding females." }
+}

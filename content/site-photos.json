@@ -1,0 +1,16 @@
+{
+  "logo": "/assets/img/logo.png",
+  "hero": "/assets/img/hero.png",
+  "intro": "/assets/img/intro.jpeg",
+  "founders": "/assets/img/gal4.jpg",
+  "ctabg": "/assets/img/ctabg.webp",
+  "about": "/assets/img/gal3.jpg",
+  "gallery": [
+    "/assets/img/gal1.jpg",
+    "/assets/img/gal2.webp",
+    "/assets/img/gal3.jpg",
+    "/assets/img/gal4.jpg",
+    "/assets/img/gal5.jpg",
+    "/assets/img/gal6.jpg"
+  ]
+}

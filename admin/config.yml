@@ -1,0 +1,378 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Photos you upload via the CMS land here and are served directly by the site.
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+publish_mode: simple
+locale: "nl"
+
+collections:
+  # --------------------------------------------------------------------------
+  # Kittens — add a new one whenever a litter is born or planned.
+  # --------------------------------------------------------------------------
+  - name: "kittens"
+    label: "Kittens"
+    label_singular: "Kitten"
+    folder: "content/kittens"
+    create: true
+    slug: "{{fields.name}}"
+    summary: "{{name}} — {{status}}"
+    fields:
+      - { label: "Naam", name: "name", widget: "string" }
+      - label: "Kleur"
+        name: "color"
+        widget: "select"
+        options:
+          - { label: "Chocolate", value: "chocolate" }
+          - { label: "Lilac", value: "lilac" }
+          - { label: "Blue", value: "blue" }
+          - { label: "Black Golden", value: "blackgolden" }
+          - { label: "Point (colourpoint)", value: "point" }
+      - label: "Kleurnaam zoals getoond (bv. 'Chocolate', 'Lilac Point')"
+        name: "colorName"
+        widget: "string"
+      - label: "Geslacht"
+        name: "gender"
+        widget: "select"
+        options:
+          - { label: "Man", value: "Man" }
+          - { label: "Vrouw", value: "Vrouw" }
+      - { label: "Nest (bv. 'A-nest')", name: "litter", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Beschikbaar", value: "available" }
+          - { label: "Gereserveerd", value: "reserved" }
+          - { label: "Verkocht", value: "sold" }
+      - { label: "Foto", name: "photo", widget: "image" }
+      - label: "Beschrijving"
+        name: "description"
+        widget: "object"
+        fields:
+          - { label: "Nederlands", name: "nl", widget: "text" }
+          - { label: "Engels", name: "en", widget: "text" }
+
+  # --------------------------------------------------------------------------
+  # Onze katten — de fokkatten (ouderdieren).
+  # --------------------------------------------------------------------------
+  - name: "cats"
+    label: "Onze katten (fokdieren)"
+    label_singular: "Kat"
+    folder: "content/cats"
+    create: true
+    slug: "{{fields.name}}"
+    summary: "{{name}} ({{role}})"
+    fields:
+      - { label: "Naam", name: "name", widget: "string" }
+      - label: "Rol"
+        name: "role"
+        widget: "select"
+        options:
+          - { label: "Kater (mannetje)", value: "male" }
+          - { label: "Poes (vrouwtje)", value: "female" }
+      - { label: "Ras zoals getoond (bv. 'Brits Korthaar')", name: "colorName", widget: "string" }
+      - { label: "Foto", name: "photo", widget: "image" }
+      - { label: "Geboortejaar", name: "born", widget: "number", value_type: "int", min: 2000, max: 2100 }
+      - label: "Beschrijving"
+        name: "description"
+        widget: "object"
+        fields:
+          - { label: "Nederlands", name: "nl", widget: "text" }
+          - { label: "Engels", name: "en", widget: "text" }
+
+  # --------------------------------------------------------------------------
+  # Voorgaande nestjes — verschijnt op de "Voorgaande nestjes"-tab bij Kittens.
+  # --------------------------------------------------------------------------
+  - name: "litters"
+    label: "Voorgaande nestjes"
+    label_singular: "Nestje"
+    folder: "content/litters"
+    create: true
+    slug: "{{fields.name}}"
+    summary: "{{name}} — {{year}}"
+    fields:
+      - { label: "Naam (bv. 'A-nest')", name: "name", widget: "string" }
+      - { label: "Periode (bv. 'November 2022')", name: "year", widget: "string" }
+      - { label: "Foto", name: "photo", widget: "image" }
+      - label: "Beschrijving"
+        name: "description"
+        widget: "object"
+        fields:
+          - { label: "Nederlands", name: "nl", widget: "text" }
+          - { label: "Engels", name: "en", widget: "text" }
+
+  # --------------------------------------------------------------------------
+  # Kattenshow-resultaten — de lijst op de Onze-katten-pagina.
+  # --------------------------------------------------------------------------
+  - name: "shows"
+    label: "Kattenshow-resultaten"
+    label_singular: "Show-resultaat"
+    folder: "content/shows"
+    create: true
+    slug: "{{fields.cat}}-{{fields.year}}"
+    summary: "{{cat}} — {{show}} ({{year}})"
+    fields:
+      - { label: "Naam kat", name: "cat", widget: "string" }
+      - { label: "Naam show", name: "show", widget: "string" }
+      - { label: "Jaar", name: "year", widget: "string" }
+      - { label: "Resultaat (bv. 'Excellent 1')", name: "result", widget: "string" }
+
+  # --------------------------------------------------------------------------
+  # Site-instellingen — contactgegevens, gebruikt in de footer en op Contact.
+  # --------------------------------------------------------------------------
+  - name: "settings"
+    label: "Site-instellingen"
+    files:
+      - file: "content/settings.json"
+        label: "Contactgegevens"
+        name: "settings"
+        fields:
+          - { label: "E-mailadres", name: "email", widget: "string" }
+          - { label: "Telefoonnummer", name: "phone", widget: "string" }
+          - { label: "Facebook-link", name: "facebook", widget: "string" }
+          - { label: "Instagram-link", name: "instagram", widget: "string" }
+          - label: "Adres"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Nederlands", name: "nl", widget: "string" }
+              - { label: "Engels", name: "en", widget: "string" }
+
+      - file: "content/site-photos.json"
+        label: "Vaste foto's (logo, hero, homepage-galerij)"
+        name: "sitePhotos"
+        description: "De grote sfeerfoto's die niet bij een specifieke kat of kitten horen."
+        fields:
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Hero-foto (grote foto bovenaan de homepage)", name: "hero", widget: "image" }
+          - { label: "Introfoto (naast 'Onze cattery'-tekst)", name: "intro", widget: "image" }
+          - { label: "Fokkers-foto", name: "founders", widget: "image" }
+          - { label: "Achtergrondfoto slot-CTA (onderaan homepage)", name: "ctabg", widget: "image" }
+          - { label: "Foto Over-ons-pagina", name: "about", widget: "image" }
+          - label: "Galerij op de homepage (6 foto's)"
+            name: "gallery"
+            widget: "list"
+            field: { label: "Foto", name: "photo", widget: "image" }
+
+      - file: "content/photos.json"
+        label: "Foto-bijschriften"
+        name: "photos"
+        description: "Korte, onzichtbare beschrijvingen van foto's (voor toegankelijkheid). Geen zichtbare tekst op de site."
+        fields:
+          - { label: "Hero-foto (homepage)", name: "hero", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Introfoto (homepage)", name: "intro", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Fokkers-foto (homepage)", name: "founders", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "CTA-achtergrondfoto (homepage)", name: "cta", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Foto Over-ons-pagina", name: "about", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Galerijfoto's (algemeen)", name: "gallery", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+
+  # --------------------------------------------------------------------------
+  # Paginateksten — alle vaste teksten per pagina, in NL en EN naast elkaar.
+  # --------------------------------------------------------------------------
+  - name: "pages"
+    label: "Paginateksten"
+    files:
+      - file: "content/pages/nav.json"
+        label: "Menu (navigatiebalk)"
+        name: "nav"
+        fields:
+          - { label: "Home", name: "home", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittens", name: "kittens", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Onze katten", name: "cats", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Over ons", name: "about", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Contact", name: "contact", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+
+      - file: "content/pages/footer.json"
+        label: "Footer (onderkant elke pagina)"
+        name: "footer"
+        fields:
+          - { label: "Copyright-regel", name: "rights", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tagline", name: "tagline", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kopje 'Adres'", name: "addressTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kopje 'Contact'", name: "contactTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kopje 'Volg ons'", name: "followTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+
+      - file: "content/pages/home.json"
+        label: "Home-pagina"
+        name: "home"
+        fields:
+          - label: "SEO (browsertab, zoekmachines)"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Paginatitel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Omschrijving", name: "description", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Hero-kicker", name: "heroKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Hero-titel, regel 1", name: "heroTitle1", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Hero-titel, regel 2 (schuingedrukt, goudkleurig)", name: "heroTitle2", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Hero-subtekst", name: "heroSub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Hero-knop tekst", name: "heroCta", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Intro-kicker", name: "introKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Intro-titel", name: "introTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Intro-tekst", name: "introText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Statistiek: label 'jaar ervaring'", name: "statYears", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Statistiek: label 'berichten gedeeld'", name: "statPosts", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Statistiek: label 'volgers'", name: "statFollowers", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Citaat-badge (over de introfoto)", name: "badgeText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kleuren-sectie: kicker", name: "colorsKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kleuren-sectie: titel", name: "colorsTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittens-sectie: kicker", name: "kittensKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittens-sectie: titel", name: "kittensTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittens-sectie: link 'bekijk alle'", name: "kittensSeeAll", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Galerij: kicker", name: "galleryKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Galerij: titel", name: "galleryTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - label: "Vertrouwens-badges (4 korte claims onder de hero)"
+            name: "trustBadges"
+            widget: "list"
+            fields:
+              - { label: "Nederlands", name: "nl", widget: "string" }
+              - { label: "Engels", name: "en", widget: "string" }
+          - { label: "Fokkers-sectie: kicker", name: "foundersKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Fokkers-sectie: titel", name: "foundersTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Fokkers-sectie: tekst", name: "foundersText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Fokkers-sectie: link 'lees meer'", name: "foundersCta", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Testimonials: kicker", name: "testimonialsKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - label: "Testimonials (ervaringen van eigenaren)"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Citaat", name: "quote", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+              - { label: "Auteur (bv. '— Familie De Vries')", name: "author", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Slot-CTA: titel", name: "ctaTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Slot-CTA: knoptekst", name: "ctaButton", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+
+      - file: "content/pages/kittens.json"
+        label: "Kittens-pagina"
+        name: "kittens"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Paginatitel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Omschrijving", name: "description", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kicker", name: "kicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Subtekst", name: "sub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kleurfilter: 'Alle'", name: "filterAll", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Beschikbaar'", name: "viewBeschikbaar", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Planning'", name: "viewPlanning", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Voorgaande nestjes'", name: "viewPast", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Planning'-tab: kicker", name: "noneKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Planning'-tab: titel (leeg-bericht)", name: "noneTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Planning'-tab: tekst", name: "noneText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "'Beschikbaar'-tab: titel als leeg", name: "noneAvailableTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Beschikbaar'-tab: tekst als leeg", name: "noneAvailableText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Wachtlijst: kicker", name: "waitlistKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Wachtlijst: titel", name: "waitlistTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Wachtlijst: tekst", name: "waitlistText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Wachtlijst: knoptekst", name: "waitlistCta", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - label: "Wachtlijst: 4 stappen"
+            name: "waitlistSteps"
+            widget: "list"
+            fields:
+              - { label: "Nummer", name: "n", widget: "string" }
+              - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Tekst", name: "text", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kittenbeleid: kicker", name: "policyKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittenbeleid: titel", name: "policyTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kittenbeleid: subtekst", name: "policySub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - label: "Kittenbeleid: 6 punten"
+            name: "policyItems"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Tekst", name: "text", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kittenbeleid: knoptekst", name: "policyCta", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "FAQ: kicker", name: "faqKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "FAQ: titel", name: "faqTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - label: "Veelgestelde vragen"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Vraag", name: "q", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Antwoord", name: "a", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+
+      - file: "content/pages/cats.json"
+        label: "Onze katten-pagina"
+        name: "cats"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Paginatitel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Omschrijving", name: "description", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kicker", name: "kicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Subtekst", name: "sub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Tab 'Alle'", name: "tabAll", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Onze poezen'", name: "tabFemales", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Onze kater'", name: "tabMale", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Tab 'Castraten'", name: "tabNeutered", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Castraten'-tab: titel als leeg", name: "neuterTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "'Castraten'-tab: tekst als leeg", name: "neuterText", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kattenshows: kicker", name: "showKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kattenshows: titel", name: "showTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Kattenshows: subtekst", name: "showSub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+
+      - file: "content/pages/about.json"
+        label: "Over ons-pagina"
+        name: "about"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Paginatitel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Omschrijving", name: "description", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kicker", name: "kicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Verhaal, alinea 1", name: "p1", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Verhaal, alinea 2", name: "p2", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Verhaal, alinea 3", name: "p3", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Waarden: titel", name: "valuesTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - label: "Onze waarden (3 punten)"
+            name: "values"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Tekst", name: "text", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Gezondheid: kicker", name: "healthKicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Gezondheid: titel", name: "healthTitle", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Gezondheid: subtekst", name: "healthSub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - label: "Gezondheidstests (bv. HCM, PKD, ...)"
+            name: "healthTests"
+            widget: "list"
+            fields:
+              - { label: "Afkorting (bv. 'HCM')", name: "abbr", widget: "string" }
+              - { label: "Volledige naam", name: "name", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+
+      - file: "content/pages/contact.json"
+        label: "Contact-pagina"
+        name: "contact"
+        fields:
+          - label: "SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Paginatitel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+              - { label: "Omschrijving", name: "description", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Kicker", name: "kicker", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Titel", name: "title", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Subtekst", name: "sub", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Formulierveld 'Naam'", name: "formName", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Formulierveld 'E-mailadres'", name: "formEmail", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Formulierveld 'Interesse in'", name: "formInterest", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Formulieroptie 'Algemene vraag'", name: "formInterestGeneral", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Formulierveld 'Bericht'", name: "formMessage", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Verstuurknop-tekst", name: "formSubmit", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Succesbericht na versturen", name: "formSuccess", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "text" }, { label: "Engels", name: "en", widget: "text" }] }
+          - { label: "Foutmelding bij lege velden", name: "formErrorMsg", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Hint onder de knop", name: "formHint", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Label 'Locatie'", name: "addressLabel", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }
+          - { label: "Label 'Volg ons'", name: "followLabel", widget: "object", fields: [{ label: "Nederlands", name: "nl", widget: "string" }, { label: "Engels", name: "en", widget: "string" }] }

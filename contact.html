@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.contact.title">Contact | Cattery Okaukuejo</title>
+  <meta name="description" data-i18n-content="meta.contact.description" content="Neem contact op met Cattery Okaukuejo in Enschede — vragen over kittens of het ras? Stuur een bericht." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: { DEFAULT: "#f8f4ec", 200: "#efe6d5", 300: "#e8dcc5" },
+            ink: "#2a211a",
+            cream: "#f7f3ec",
+            terracotta: "#a85c48",
+            gold: "#c9a05c",
+          },
+          fontFamily: {
+            display: ["'Barlow Condensed'", "sans-serif"],
+            sans: ["Barlow", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-paper text-ink antialiased">
+
+  <div id="navbar"></div>
+
+  <main class="flex flex-wrap gap-20 px-[8vw] pb-[140px]" style="padding-top:180px;">
+    <div class="min-w-[300px] flex-[1_1_380px]">
+      <div class="kicker mb-4" data-i18n="contact.kicker">Neem contact op</div>
+      <h1 class="mb-6 font-display text-[48px] font-semibold" data-i18n="contact.title">Laten we kennismaken</h1>
+      <p class="mb-11 max-w-[460px] text-[17px] leading-[1.8] text-ink/68" data-i18n="contact.sub">
+        Heb je interesse in een kitten, of gewoon een vraag over het ras? Stuur een bericht,
+        we reageren binnen enkele dagen.
+      </p>
+      <div class="mb-7">
+        <div class="mb-2 font-display text-[13px] font-bold uppercase tracking-[.1em] text-gold" data-i18n="contact.addressLabel">Locatie</div>
+        <div class="text-[17px] text-ink" data-i18n="contact.address">Enschede, Nederland</div>
+      </div>
+      <div>
+        <div class="mb-2 font-display text-[13px] font-bold uppercase tracking-[.1em] text-gold" data-i18n="contact.followLabel">Volg ons</div>
+        <a href="https://facebook.com/catteryokaukuejo" target="_blank" rel="noopener" class="text-[17px]">Facebook &mdash; Cattery Okaukuejo</a>
+      </div>
+    </div>
+
+    <div class="min-w-[320px] flex-[1_1_460px] rounded border border-ink/[.08] p-11" style="background:rgba(42,33,26,.03);">
+      <form id="contact-form" class="flex flex-col gap-5" novalidate>
+        <div>
+          <div class="field-label" data-i18n="contact.formName">Naam</div>
+          <input id="form-name" name="name" type="text" class="field-input" />
+        </div>
+        <div>
+          <div class="field-label" data-i18n="contact.formEmail">E-mailadres</div>
+          <input id="form-email" name="email" type="email" class="field-input" />
+        </div>
+        <div>
+          <div class="field-label" data-i18n="contact.formInterest">Interesse in</div>
+          <select id="form-interest" name="interest" class="field-input"></select>
+        </div>
+        <div>
+          <div class="field-label" data-i18n="contact.formMessage">Bericht</div>
+          <textarea id="form-message" name="message" rows="4" class="field-input" style="resize:vertical;"></textarea>
+        </div>
+        <div id="form-error" class="hidden text-sm" style="color:#e08a75;" data-i18n="contact.formErrorMsg">Vul in ieder geval je naam en e-mailadres in.</div>
+        <button type="submit" data-i18n="contact.formSubmit" class="glossy-btn mt-2 text-center" style="width:100%;padding:17px;">Verstuur bericht</button>
+        <div class="text-center text-[13px] text-ink/40" data-i18n="contact.formHint">Opent je e-mailprogramma met het bericht vooraf ingevuld.</div>
+      </form>
+
+      <div id="form-success" class="hidden px-5 py-16 text-center">
+        <div class="font-display text-[28px] font-semibold text-gold" data-i18n="contact.formSuccess">Bedankt! Je e-mailprogramma opent met je bericht klaar om te versturen naar Cattery Okaukuejo.</div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function renderDynamicContent() {
+      mountLayout("contact");
+      const lang = getCurrentLang();
+
+      const options = [`<option value="${t("contact.formInterestGeneral", lang)}">${t("contact.formInterestGeneral", lang)}</option>`]
+        .concat(KITTENS.map((k) => `<option value="${k.name}">${k.name}</option>`));
+      document.getElementById("form-interest").innerHTML = options.join("");
+    }
+
+    window.onLanguageChange = renderDynamicContent;
+    applyTranslations();
+  </script>
+</body>
+</html>

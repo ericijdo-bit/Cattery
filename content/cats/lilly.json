@@ -1,0 +1,8 @@
+{
+  "name": "Lilly",
+  "role": "female",
+  "colorName": "Brits Langhaar",
+  "photo": "/assets/img/intro.jpeg",
+  "born": 2021,
+  "description": { "nl": "Een van onze fokpoezen.", "en": "One of our breeding females." }
+}

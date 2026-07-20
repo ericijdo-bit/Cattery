@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.cats.title">Onze katten | Cattery Okaukuejo</title>
+  <meta name="description" data-i18n-content="meta.cats.description" content="Maak kennis met de fokkatten van Cattery Okaukuejo — gezondheid, karakter en type staan bij elke combinatie voorop." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: { DEFAULT: "#f8f4ec", 200: "#efe6d5", 300: "#e8dcc5" },
+            ink: "#2a211a",
+            cream: "#f7f3ec",
+            terracotta: "#a85c48",
+            gold: "#c9a05c",
+          },
+          fontFamily: {
+            display: ["'Barlow Condensed'", "sans-serif"],
+            sans: ["Barlow", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-paper text-ink antialiased">
+
+  <div id="navbar"></div>
+
+  <main class="px-[8vw] pb-[120px]" style="padding-top:180px;">
+    <div class="mb-11 text-center">
+      <div class="kicker mb-4" data-i18n="cats.kicker">Onze kater &amp; poezen</div>
+      <h1 class="mb-5 font-display text-[52px] font-semibold" data-i18n="cats.title">Onze katten</h1>
+      <p class="mx-auto max-w-[600px] text-[17px] text-ink/60" data-i18n="cats.sub">Gezondheid, karakter en type staan bij elke combinatie voorop.</p>
+    </div>
+
+    <div id="cat-tabs" class="mb-14 flex flex-wrap justify-center gap-3"></div>
+
+    <div id="cats-section"></div>
+
+    <!-- KATTENSHOW-RESULTATEN -->
+    <div class="mt-[120px]">
+      <div class="mb-11 text-center">
+        <div class="kicker mb-4" data-i18n="cats.showKicker">Kattenshows</div>
+        <h2 class="mb-3.5 font-display text-[36px] font-semibold" data-i18n="cats.showTitle">Onze show-resultaten</h2>
+        <p class="mx-auto max-w-[600px] text-[15px] text-ink/60" data-i18n="cats.showSub">We laten onze katten graag af en toe beoordelen door onafhankelijke keurmeesters op shows van rasvereniging Mundikat.</p>
+      </div>
+      <div id="show-results" class="mx-auto flex max-w-[760px] flex-col"></div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    let activeCatFilter = "all";
+
+    function renderCatTabs() {
+      const lang = getCurrentLang();
+      const options = [
+        { key: "all", label: t("cats.tabAll", lang) },
+        { key: "poes", label: t("cats.tabFemales", lang) },
+        { key: "kater", label: t("cats.tabMale", lang) },
+        { key: "castraten", label: t("cats.tabNeutered", lang) },
+      ];
+      document.getElementById("cat-tabs").innerHTML = renderTabs(options, activeCatFilter, "cat-filter");
+    }
+
+    function renderCatsSection() {
+      const lang = getCurrentLang();
+      const container = document.getElementById("cats-section");
+
+      if (activeCatFilter === "castraten") {
+        container.innerHTML = `
+          <div class="mx-auto max-w-[700px] text-center" style="background:rgba(42,33,26,.03);border:1px solid rgba(42,33,26,.08);border-radius:4px;padding:56px 8vw;">
+            <div class="mb-4 font-display text-[28px] font-semibold" data-i18n="cats.neuterTitle">${t("cats.neuterTitle", lang)}</div>
+            <div class="text-[15px] leading-relaxed text-ink/65" data-i18n="cats.neuterText">${t("cats.neuterText", lang)}</div>
+          </div>`;
+        return;
+      }
+
+      const roleKey = lang === "nl" ? (activeCatFilter === "kater" ? "Kater" : "Poes") : activeCatFilter === "kater" ? "Male" : "Female";
+      const visible = activeCatFilter === "all" ? CATS : CATS.filter((c) => c.role[lang] === roleKey);
+      container.innerHTML = `<div class="grid gap-9" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">${visible.map(renderCatCard).join("")}</div>`;
+    }
+
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-cat-filter]");
+      if (!btn) return;
+      activeCatFilter = btn.getAttribute("data-cat-filter");
+      renderCatTabs();
+      renderCatsSection();
+    });
+
+    function renderDynamicContent() {
+      mountLayout("cats");
+      renderCatTabs();
+      renderCatsSection();
+
+      document.getElementById("show-results").innerHTML = SHOW_RESULTS.map(
+        (s) => `
+        <div class="flex items-center justify-between gap-4 border-b border-ink/10 px-1 py-[18px]">
+          <div>
+            <div class="font-display text-lg font-bold">${s.cat}</div>
+            <div class="text-[13px] text-ink/55">${s.show} &middot; ${s.year}</div>
+          </div>
+          <div class="text-right font-display text-[15px] font-bold text-gold">${s.result}</div>
+        </div>`
+      ).join("");
+    }
+
+    window.onLanguageChange = renderDynamicContent;
+    applyTranslations();
+  </script>
+</body>
+</html>

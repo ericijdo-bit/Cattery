@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="meta.about.title">Over ons | Cattery Okaukuejo</title>
+  <meta name="description" data-i18n-content="meta.about.description" content="Wij zijn Pascal en Linda — het verhaal achter Cattery Okaukuejo in Enschede." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: { DEFAULT: "#f8f4ec", 200: "#efe6d5", 300: "#e8dcc5" },
+            ink: "#2a211a",
+            cream: "#f7f3ec",
+            terracotta: "#a85c48",
+            gold: "#c9a05c",
+          },
+          fontFamily: {
+            display: ["'Barlow Condensed'", "sans-serif"],
+            sans: ["Barlow", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-paper text-ink antialiased">
+
+  <div id="navbar"></div>
+
+  <main>
+    <section class="flex flex-wrap items-center gap-20 px-[8vw] pb-[100px]" style="padding-top:180px;">
+      <div class="min-w-[300px] flex-[1_1_420px]">
+        <div class="kicker mb-4" data-i18n="about.kicker">Ons verhaal</div>
+        <h1 class="mb-7 font-display text-[50px] font-semibold leading-[1.1]" data-i18n="about.title">Wij zijn Pascal en Linda</h1>
+        <p class="mb-5 text-[17px] leading-[1.85] text-ink/68" data-i18n="about.p1">
+          Wij zijn Pascal en Linda en samen met onze kinderen Senna en Mad&eacute;e wonen wij
+          in Enschede. Onze liefde voor dieren is altijd een belangrijk onderdeel geweest van
+          ons leven. Toen onze Britse kortharen Archie en Ollie bij ons kwamen wonen, groeide
+          niet alleen onze liefde voor dit bijzondere ras, maar ontstond ook de wens om ons
+          verder te verdiepen in Brits kort- en langharen en het verantwoord starten van een
+          kleinschalige hobbycattery.
+        </p>
+        <p class="mb-5 text-[17px] leading-[1.85] text-ink/68" data-i18n="about.p2">
+          In 2021 hebben we de stap gezet. We vonden het belangrijk om goed voorbereid aan dit
+          avontuur te beginnen en hebben ons daarom verdiept in gezondheid, verzorging en
+          genetica. Zo volgden wij onder meer de opleiding houder voor honden en katten en een
+          cursus genetica. Ook zijn we aangesloten bij een rasvereniging (Mundikat) en zijn we
+          af en toe te vinden op kattenshows &mdash; hier vinden wij het leuk om kennis uit te
+          wisselen met andere liefhebbers en onze katten te laten beoordelen door
+          onafhankelijke keurmeesters.
+        </p>
+        <p class="text-[17px] leading-[1.85] text-ink/68" data-i18n="about.p3">
+          Onze katten zijn voor ons in de eerste plaats onze huisdieren en maken onderdeel uit
+          van ons gezin. Daarom kiezen wij er bewust voor om slechts af en toe een nestje te
+          hebben, zodat we ieder kitten en moederpoes alle aandacht, liefde en zorg kunnen
+          geven die zij verdienen. In november 2022 is ons eerste nestje geboren &mdash; een
+          bijzondere ervaring waar we ontzettend van genoten hebben.
+        </p>
+      </div>
+      <div id="about-photo" class="min-w-[300px] flex-[1_1_380px]"></div>
+    </section>
+
+    <section class="bg-paper-200 px-[8vw] pb-[140px] pt-[100px]">
+      <h2 class="mb-14 text-center font-display text-[38px] font-semibold" data-i18n="about.valuesTitle">Waar we voor staan</h2>
+      <div id="values-grid" class="mx-auto grid max-w-[1200px] gap-8" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));"></div>
+    </section>
+
+    <!-- GEZONDHEID & WELZIJN -->
+    <section class="px-[8vw] py-[120px]">
+      <div class="mb-14 text-center">
+        <div class="kicker mb-4" data-i18n="about.healthKicker">Gezondheid en welzijn</div>
+        <h2 class="font-display text-[38px] font-semibold" data-i18n="about.healthTitle">Waar wij onze katten op testen</h2>
+        <p class="mx-auto mt-4 max-w-[600px] text-base text-ink/60" data-i18n="about.healthSub">Onze fokkatten worden regelmatig getest op erfelijke en besmettelijke aandoeningen, zodat we bewust en verantwoord fokken.</p>
+      </div>
+      <div id="health-grid" class="mx-auto grid max-w-[1100px] gap-5" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));"></div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function renderDynamicContent() {
+      mountLayout("about");
+      const lang = getCurrentLang();
+
+      document.getElementById("about-photo").innerHTML = renderPhoto(IMAGES.about, t("photos.about", lang), "rounded-[6px]", "height:560px;");
+
+      document.getElementById("values-grid").innerHTML = t("about.values", lang)
+        .map(
+          (v) => `
+          <div class="px-6 py-8 text-center">
+            <div class="mb-3.5 font-display text-[23px] font-bold text-gold">${v.title}</div>
+            <div class="text-[15px] leading-relaxed text-ink/60">${v.text}</div>
+          </div>`
+        )
+        .join("");
+
+      document.getElementById("health-grid").innerHTML = t("about.healthTests", lang)
+        .map(
+          (h) => `
+          <div class="glossy-card rounded border border-ink/[.08] px-5 py-[26px] text-center">
+            <div class="mb-2 font-display text-xl font-bold text-gold">${h.abbr}</div>
+            <div class="text-[13px] leading-relaxed text-ink/60">${h.name}</div>
+          </div>`
+        )
+        .join("");
+    }
+
+    window.onLanguageChange = renderDynamicContent;
+    applyTranslations();
+  </script>
+</body>
+</html>
