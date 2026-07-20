@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ericijdo-bit/Cattery
   branch: main
+  base_url: https://catteryokaukuejo.netlify.app
+  auth_endpoint: /.netlify/functions/auth
 
 # Photos you upload via the CMS land here and are served directly by the site.
 media_folder: "assets/img/uploads"

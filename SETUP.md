@@ -9,60 +9,52 @@ Je hebt hiervoor twee **gratis** accounts nodig: **GitHub** (waar de code
 staat) en **Netlify** (waar de site draait). Beide maak je zelf aan — dat
 kan een AI-assistent niet voor je doen.
 
-## Stap 1 — GitHub-account en repository
+## Stap 1 — GitHub-account en repository ✅ gedaan
 
-1. Ga naar [github.com](https://github.com) en maak een gratis account aan
-   (of log in als je er al een hebt).
-2. Klik rechtsboven op **+** → **New repository**.
-3. Geef hem een naam, bijvoorbeeld `cattery-okaukuejo`. Laat "Public" of
-   "Private" staan zoals je wilt (Private kan geen kwaad, de site werkt
-   hetzelfde). Klik **Create repository** — laat de repo verder leeg (geen
-   README aanvinken).
-4. Je krijgt nu een schermpje met een URL die eruitziet als
-   `https://github.com/jouw-gebruikersnaam/cattery-okaukuejo.git`. Stuur die
-   naar mij (of plak 'm in de chat) — dan duw ik de code ernaartoe.
+Repository: `github.com/ericijdo-bit/Cattery`.
 
-## Stap 2 — Netlify-account en site
+## Stap 2 — Netlify-account en site ✅ gedaan
 
-1. Ga naar [netlify.com](https://netlify.com) en maak een gratis account
-   aan. Kies bij het aanmaken voor **"Sign up with GitHub"** — dat maakt
-   stap 3 makkelijker.
-2. Klik op **Add new site** → **Import an existing project**.
-3. Kies **GitHub** en selecteer de repository die je in stap 1 hebt
-   aangemaakt.
-4. Netlify herkent automatisch de instellingen uit `netlify.toml` in dit
-   project (build-commando en publicatiemap) — je hoeft niets aan te
-   passen. Klik **Deploy**.
-5. Na een minuutje staat je site live op een adres als
-   `https://iets-random-123.netlify.app`. Dat mag je later omzetten naar
-   een eigen domeinnaam (bv. catteryokaukuejo.nl) via **Domain settings** —
-   dat is een aparte, optionele stap.
+Live op `catteryokaukuejo.netlify.app`.
 
-## Stap 3 — Identity + Git Gateway inschakelen (dit maakt de CMS-login mogelijk)
+## Stap 3 — Inloggen via GitHub koppelen
 
-1. Ga in je Netlify-site naar **Site configuration** → **Identity** (of
-   zoek "Identity" in het menu) → klik **Enable Identity**.
-2. Scroll naar **Registration preferences** en zet die op **Invite only**
-   (zo kan niemand anders zichzelf uitnodigen).
-3. Scroll naar **Services** → **Git Gateway** → klik **Enable Git Gateway**.
-   Dit is de "brug" die ervoor zorgt dat de CMS namens jou wijzigingen naar
-   GitHub kan opslaan, zonder dat jij zelf met git hoeft te werken.
-4. Ga naar het tabblad **Identity** bovenaan (niet de instellingen, maar de
-   gebruikerslijst) en klik **Invite users**. Vul je eigen e-mailadres in
-   (en dat van Pascal/Linda als jullie er samen in willen werken). Je
-   krijgt een uitnodigingsmail.
-5. Klik de link in die e-mail aan, stel een wachtwoord in — je bent nu een
-   CMS-gebruiker.
+Netlify Identity (het oorspronkelijke plan) bleek niet meer beschikbaar
+voor nieuwe projecten. In plaats daarvan logt de CMS in met je **GitHub-
+account** — dat vraagt een eenmalige koppeling:
+
+1. Ga naar GitHub → klik rechtsboven op je profielfoto → **Settings** →
+   helemaal onderaan links **Developer settings** → **OAuth Apps** →
+   **New OAuth App**.
+2. Vul in:
+   - **Application name**: bv. `Cattery Okaukuejo CMS`
+   - **Homepage URL**: `https://catteryokaukuejo.netlify.app`
+   - **Authorization callback URL**: `https://catteryokaukuejo.netlify.app/.netlify/functions/callback`
+3. Klik **Register application**. Je krijgt een **Client ID** te zien.
+   Klik daarna **Generate a new client secret** — kopieer die meteen (hij
+   is later niet meer zichtbaar).
+4. Ga naar je Netlify-project → **Project configuration** →
+   **Environment variables** → **Add a variable** → **Add a single
+   variable**, en voeg twee variabelen toe:
+   - `OAUTH_CLIENT_ID` = de Client ID van stap 3
+   - `OAUTH_CLIENT_SECRET` = de client secret van stap 3
+5. Ga naar **Deploys** en klik **Trigger deploy** → **Deploy site** (zodat
+   Netlify de nieuwe omgevingsvariabelen meeneemt).
 
 ## Stap 4 — Inloggen en beheren
 
-Ga naar `jouwsite.netlify.app/admin` (of straks je eigen domein + `/admin`),
-log in met het wachtwoord van stap 3, en je ziet het beheerformulier:
-kittens, katten, nestjes, show-resultaten, site-instellingen en alle
-paginateksten — allemaal met gewone invulvelden en een foto-uploadknop.
+Ga naar `catteryokaukuejo.netlify.app/admin`, klik **Login with GitHub**,
+en log in met je GitHub-account. Je ziet het beheerformulier: kittens,
+katten, nestjes, show-resultaten, site-instellingen en alle paginateksten —
+allemaal met gewone invulvelden en een foto-uploadknop.
 
 Elke keer dat je op **Publish** klikt, wordt de site binnen een paar minuten
 automatisch bijgewerkt.
+
+Wil je dat Pascal/Linda ook zelf kunnen inloggen? Voeg hen toe als
+**Collaborator** op de GitHub-repository (**Settings** → **Collaborators**
+op de repo-pagina) — iedere collaborator kan dan met hun eigen GitHub-
+account inloggen op `/admin`.
 
 ## Wat kun je straks aanpassen?
 

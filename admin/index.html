@@ -4,26 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beheer — Cattery Okaukuejo</title>
-  <!-- Netlify Identity: geeft jou en Linda/Pascal een inlogscherm, gekoppeld
-       aan Netlify's ingebouwde gebruikersbeheer (zie de opzetgids). -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <!-- Decap CMS (voorheen Netlify CMS) — leest admin/config.yml en toont
-       daarop gebaseerd het beheerformulier hieronder. -->
+       daarop gebaseerd het beheerformulier. Inloggen gaat via "Login with
+       GitHub" (zie SETUP.md voor de eenmalige koppeling). -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    // Stuurt bezoekers die via een uitnodigingslink binnenkomen automatisch
-    // naar het wachtwoord-instelscherm, in plaats van de kale inlogpagina.
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
